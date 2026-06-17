@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f9ff;
+  --foreground: #08152f;
+  --brand-ink: #08152f;
+  --brand-blue: #0a5bff;
+  --brand-blue-strong: #0636b8;
+  --brand-blue-soft: #e6efff;
+  --brand-green: #61d64b;
+  --brand-green-soft: #ebf9e7;
+  --surface: #ffffff;
+  --surface-muted: #eff5ff;
+  --border: #d8e5ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(10, 91, 255, 0.08), transparent 28%),
+    linear-gradient(180deg, #fbfdff 0%, var(--background) 26%, #eef4ff 100%);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.site-shell {
+  width: 100%;
+  max-width: 1520px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 640px) {
+  .site-shell {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-shell {
+    padding-inline: 2rem;
+  }
+}
+
+::selection {
+  background: #c8dcff;
+  color: var(--brand-ink);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
