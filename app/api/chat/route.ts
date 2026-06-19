@@ -21,7 +21,7 @@ const blockedPatterns = [
 
 type OpenAIResponse = {
   error?: {
-    code?: string;
+    code?: number | string;
     message?: string;
   };
   output?: Array<{
@@ -31,6 +31,14 @@ type OpenAIResponse = {
     }>;
   }>;
   output_text?: string;
+};
+
+type OpenRouterResponse = OpenAIResponse & {
+  choices?: Array<{
+    message?: {
+      content?: string;
+    };
+  }>;
 };
 
 const assistantInstructions = `
@@ -67,6 +75,10 @@ function extractReply(response: OpenAIResponse) {
     .trim();
 }
 
+function extractOpenRouterReply(response: OpenRouterResponse) {
+  return response.choices?.[0]?.message?.content?.trim();
+}
+
 export async function POST(req: Request) {
   const ip = getClientIp(req);
   const limit = consumeRateLimit({
@@ -97,40 +109,87 @@ export async function POST(req: Request) {
     });
   }
 
-  const apiKey = process.env.OPENAI_API_KEY || process.env.AI_API_KEY;
+  const apiKey =
+    process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY || process.env.AI_API_KEY;
   if (!apiKey) {
     return NextResponse.json(
-      { error: "AI assistant is not configured. Add OPENAI_API_KEY and restart the server." },
+      { error: "AI assistant is not configured. Add an API key and restart the server." },
       { status: 503 },
     );
   }
 
-  try {
-    const openAIResponse = await fetch("https://api.openai.com/v1/responses", {
-      body: JSON.stringify({
-        input: [
-          ...history.map((item) => ({ content: item.content, role: item.role })),
-          { content: message, role: "user" },
-        ],
-        instructions: assistantInstructions,
-        max_output_tokens: 300,
-        model: process.env.OPENAI_MODEL || process.env.AI_MODEL || "gpt-4.1-mini",
-      }),
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      signal: AbortSignal.timeout(20_000),
-    });
-    const responseBody = (await openAIResponse.json().catch(() => ({}))) as OpenAIResponse;
+  const useOpenRouter = Boolean(process.env.OPENROUTER_API_KEY) || apiKey.startsWith("sk-or-");
+  const providerName = useOpenRouter ? "OpenRouter" : "OpenAI";
 
-    if (!openAIResponse.ok) {
-      console.error("OpenAI chat request failed", {
+  try {
+    const openRouterMessages = [
+      { content: assistantInstructions, role: "system" },
+      ...history.map((item) => ({ content: item.content, role: item.role })),
+      { content: message, role: "user" },
+    ];
+    const openRouterModel =
+      process.env.OPENROUTER_MODEL || "qwen/qwen3-next-80b-a3b-instruct:free";
+    const providerUrl = useOpenRouter
+      ? "https://openrouter.ai/api/v1/chat/completions"
+      : "https://api.openai.com/v1/responses";
+    const providerHeaders = {
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      ...(useOpenRouter
+        ? {
+            "HTTP-Referer": new URL(req.url).origin,
+            "X-Title": siteConfig.name,
+          }
+        : {}),
+    };
+    const requestProvider = (model = openRouterModel) =>
+      fetch(providerUrl, {
+        body: JSON.stringify(
+          useOpenRouter
+            ? {
+                max_tokens: 300,
+                messages: openRouterMessages,
+                model,
+                temperature: 0.3,
+              }
+            : {
+                input: [
+                  ...history.map((item) => ({ content: item.content, role: item.role })),
+                  { content: message, role: "user" },
+                ],
+                instructions: assistantInstructions,
+                max_output_tokens: 300,
+                model: process.env.OPENAI_MODEL || process.env.AI_MODEL || "gpt-4.1-mini",
+              },
+        ),
+        headers: providerHeaders,
+        method: "POST",
+        signal: AbortSignal.timeout(20_000),
+      });
+
+    let providerResponse = await requestProvider();
+    let responseBody = (await providerResponse.json().catch(() => ({}))) as OpenRouterResponse;
+
+    if (
+      useOpenRouter &&
+      !providerResponse.ok &&
+      (providerResponse.status === 429 || providerResponse.status >= 500)
+    ) {
+      const fallbackModel = process.env.OPENROUTER_FALLBACK_MODEL || "openrouter/free";
+      console.warn("OpenRouter primary model unavailable; trying fallback", {
+        model: openRouterModel,
+        status: providerResponse.status,
+      });
+      providerResponse = await requestProvider(fallbackModel);
+      responseBody = (await providerResponse.json().catch(() => ({}))) as OpenRouterResponse;
+    }
+
+    if (!providerResponse.ok) {
+      console.error(`${providerName} chat request failed`, {
         code: responseBody.error?.code,
         message: responseBody.error?.message,
-        requestId: openAIResponse.headers.get("x-request-id"),
-        status: openAIResponse.status,
+        requestId: providerResponse.headers.get("x-request-id"),
+        status: providerResponse.status,
       });
       return NextResponse.json(
         { error: "The AI assistant could not connect right now. Please try again shortly." },
@@ -138,10 +197,12 @@ export async function POST(req: Request) {
       );
     }
 
-    const reply = extractReply(responseBody);
+    const reply = useOpenRouter
+      ? extractOpenRouterReply(responseBody)
+      : extractReply(responseBody);
     if (!reply) {
-      console.error("OpenAI chat response did not contain output text", {
-        requestId: openAIResponse.headers.get("x-request-id"),
+      console.error(`${providerName} chat response did not contain output text`, {
+        requestId: providerResponse.headers.get("x-request-id"),
       });
       return NextResponse.json(
         { error: "The AI assistant returned an empty response. Please try again." },
@@ -151,7 +212,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ reply });
   } catch (error) {
-    console.error("OpenAI chat request error", {
+    console.error(`${providerName} chat request error`, {
       message: error instanceof Error ? error.message : "Unknown error",
     });
     return NextResponse.json(

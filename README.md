@@ -35,6 +35,9 @@ deployment environment:
 - `CONTACT_TO_EMAIL`
 - `OPENAI_API_KEY` (preferred; `AI_API_KEY` remains supported)
 - `OPENAI_MODEL` (optional; defaults to `gpt-4.1-mini`)
+- `OPENROUTER_API_KEY` (optional OpenRouter alternative; `sk-or-` keys are auto-detected)
+- `OPENROUTER_MODEL` (optional; defaults to `qwen/qwen3-next-80b-a3b-instruct:free`)
+- `OPENROUTER_FALLBACK_MODEL` (optional; defaults to `openrouter/free`)
 - `ENABLE_HSTS=true` only after HTTPS is stable on `operionlabs.in` and `www.operionlabs.in`
 
 Never commit `.env.local`. The service role key must stay server-side only.
