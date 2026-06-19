@@ -29,27 +29,39 @@ export function ChatWidget() {
       return;
     }
 
+    const history = messages.slice(1).slice(-10);
     setInput("");
     setLoading(true);
     setMessages((current) => [...current, { role: "user", content: message }]);
 
-    const response = await fetch("/api/chat", {
-      body: JSON.stringify({ message }),
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-    });
-    const body = await response.json().catch(() => ({}));
+    try {
+      const response = await fetch("/api/chat", {
+        body: JSON.stringify({ history, message }),
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+      });
+      const body = await response.json().catch(() => ({}));
 
-    setMessages((current) => [
-      ...current,
-      {
-        role: "assistant",
-        content: response.ok
-          ? body.reply
-          : body.error || "Unable to answer right now. Please use the quote form.",
-      },
-    ]);
-    setLoading(false);
+      setMessages((current) => [
+        ...current,
+        {
+          role: "assistant",
+          content: response.ok
+            ? body.reply
+            : body.error || "Unable to answer right now. Please use the quote form.",
+        },
+      ]);
+    } catch {
+      setMessages((current) => [
+        ...current,
+        {
+          role: "assistant",
+          content: "Unable to reach the assistant right now. Please try again.",
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (

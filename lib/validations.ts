@@ -43,8 +43,14 @@ export const demoSchema = z.object({
   website: z.string().optional(),
 });
 
+const chatMessageSchema = z.object({
+  role: z.enum(["user", "assistant"]),
+  content: z.string().trim().min(1).max(1000),
+});
+
 export const chatSchema = z.object({
   message: z.string().trim().min(2).max(1000),
+  history: z.array(chatMessageSchema).max(10).default([]),
 });
 
 export type ContactInput = z.infer<typeof contactSchema>;

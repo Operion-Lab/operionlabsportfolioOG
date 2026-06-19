@@ -33,7 +33,8 @@ deployment environment:
 - `SUPABASE_SERVICE_ROLE_KEY`
 - `RESEND_API_KEY`
 - `CONTACT_TO_EMAIL`
-- `AI_API_KEY`
+- `OPENAI_API_KEY` (preferred; `AI_API_KEY` remains supported)
+- `OPENAI_MODEL` (optional; defaults to `gpt-4.1-mini`)
 - `ENABLE_HSTS=true` only after HTTPS is stable on `operionlabs.in` and `www.operionlabs.in`
 
 Never commit `.env.local`. The service role key must stay server-side only.
