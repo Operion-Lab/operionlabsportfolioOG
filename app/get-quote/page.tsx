@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Get Quote",
   description:
-    "Request a website, app, SaaS, AI chatbot or custom software quote from Operion Labs.",
+    "Request a website, app, SaaS, AI chatbot or custom software quote from Kriovya Labs.",
   path: "/get-quote",
 });
 
@@ -16,7 +16,7 @@ export default function GetQuotePage() {
     <>
       <PageHeader eyebrow="Get quote" title="Share your project requirements">
         Include your business name, project type, timeline, rough budget and required features.
-        Operion Labs reviews the scope before sharing a final quotation.
+        Kriovya Labs reviews the scope before sharing a final quotation.
       </PageHeader>
       <section className="bg-white py-16 sm:py-20">
         <div className="site-shell">

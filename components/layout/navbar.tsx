@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { OperionLogo } from "@/components/branding/operion-logo";
+import { KriovyaLogo } from "@/components/branding/kriovya-logo";
 import { navItems } from "@/content/site";
 import { ButtonLink } from "@/components/ui/button";
 
@@ -24,7 +24,7 @@ export function Navbar() {
           href="/"
           onClick={() => setOpen(false)}
         >
-          <OperionLogo markClassName="h-9 w-9" />
+          <KriovyaLogo markClassName="h-9 w-9" />
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">

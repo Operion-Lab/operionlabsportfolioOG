@@ -1,4 +1,4 @@
-import { OperionLogo } from "@/components/branding/operion-logo";
+import { KriovyaLogo } from "@/components/branding/kriovya-logo";
 import { contactMethods, siteConfig } from "@/content/site";
 
 export function Footer() {
@@ -6,7 +6,7 @@ export function Footer() {
     <footer className="border-t border-[#10244f] bg-[#06112b] text-white">
       <div className="site-shell grid gap-10 py-12 lg:grid-cols-[1.25fr_0.95fr]">
         <div>
-          <OperionLogo showTagline theme="dark" />
+          <KriovyaLogo showTagline theme="dark" />
           <p className="mt-4 max-w-md text-sm leading-6 text-slate-300">
             Built for founders, operators and teams that need cleaner workflows, tighter delivery
             discipline and software that still makes sense after handover.
@@ -44,7 +44,7 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 px-4 py-5 text-center text-xs text-slate-400">
-        {new Date().getFullYear()} {siteConfig.name}. Built for {siteConfig.domain}.
+        {new Date().getFullYear()} {siteConfig.name}. {siteConfig.tagline}
       </div>
     </footer>
   );

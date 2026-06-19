@@ -9,7 +9,7 @@ export function ProductsPreview() {
     <section className="bg-white py-16 sm:py-20">
       <div className="site-shell">
         <SectionHeading eyebrow="Products" title="Product thinking beyond service delivery">
-          Operion Labs showcases real product directions honestly as demos and prototypes until
+          Kriovya Labs showcases real product directions honestly as demos and prototypes until
           live client proof is available.
         </SectionHeading>
 

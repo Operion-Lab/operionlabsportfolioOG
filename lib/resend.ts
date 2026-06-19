@@ -3,7 +3,7 @@ import { Resend } from "resend";
 import { siteConfig } from "@/content/site";
 import type { ContactInput, DemoInput, QuoteInput } from "@/lib/validations";
 
-const defaultFromEmail = "Operion Labs <onboarding@resend.dev>";
+const defaultFromEmail = "Kriovya Labs <onboarding@resend.dev>";
 
 function getFromEmail() {
   return process.env.RESEND_FROM_EMAIL || defaultFromEmail;
@@ -14,7 +14,7 @@ function getToEmail() {
     process.env.CONTACT_TO_EMAIL ||
     process.env.LEADS_TO_EMAIL ||
     siteConfig.email ||
-    "operionlabs@gmail.com"
+    "kriovyalabs@gmail.com"
   );
 }
 
@@ -24,7 +24,7 @@ export function hasEmailConfig() {
 
 export async function sendContactEmail(data: ContactInput) {
   return sendLeadEmail({
-    subject: "New contact message - Operion Labs",
+    subject: "New contact message - Kriovya Labs",
     replyTo: data.email,
     rows: [
       ["Name", data.name],

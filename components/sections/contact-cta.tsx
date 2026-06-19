@@ -11,7 +11,7 @@ export function ContactCta() {
         <div>
           <SectionHeading eyebrow="Project brief" title="Start with a brief that is actually usable">
             Share the current workflow, required screens, timeline, rough budget and decision
-            context. Operion Labs reviews the scope before giving a final quotation.
+            context. Kriovya Labs reviews the scope before giving a final quotation.
           </SectionHeading>
           <div className="mt-8 grid gap-3">
             <div className="flex items-start gap-3 text-slate-700">

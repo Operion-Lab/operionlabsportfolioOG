@@ -59,7 +59,7 @@ export function ChatWidget() {
           <div className="flex items-center justify-between border-b border-[#1640a6] bg-[linear-gradient(135deg,#08152f,#0a5bff)] px-4 py-3 text-white">
             <div className="flex items-center gap-2 text-sm font-semibold">
               <Bot aria-hidden className="h-5 w-5 text-[var(--brand-green)]" />
-              Operion Assistant
+              Kriovya Assistant
             </div>
             <button
               aria-label="Close chat"

@@ -7,14 +7,14 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Products",
   description:
-    "Operion Labs product demos and prototypes including FieldOps SaaS, School Management, AI Site Supervisor and Local Maid/Helper platform.",
+    "Kriovya Labs product demos and prototypes including FieldOps SaaS, School Management, AI Site Supervisor and Local Maid/Helper platform.",
   path: "/products",
 });
 
 export default function ProductsPage() {
   return (
     <>
-      <PageHeader eyebrow="Products" title="Product demos and prototypes from Operion Labs">
+      <PageHeader eyebrow="Products" title="Product demos and prototypes from Kriovya Labs">
         No fake client logos or exaggerated claims. These products are labeled honestly as available
         demos, prototypes or internal product demos.
       </PageHeader>

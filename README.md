@@ -1,4 +1,4 @@
-# Operion Labs Portfolio
+# Kriovya Labs Portfolio
 
 Next.js portfolio and lead-generation site for `operionlabs.in`, built from the
 `operionlabs_top_tier_portfolio_build_deploy_security_guide.pdf` implementation guide.

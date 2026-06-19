@@ -7,14 +7,14 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: "Contact Operion Labs by phone, WhatsApp, email or contact form.",
+  description: "Contact Kriovya Labs by phone, WhatsApp, email or contact form.",
   path: "/contact",
 });
 
 export default function ContactPage() {
   return (
     <>
-      <PageHeader eyebrow="Contact" title="Contact Operion Labs">
+      <PageHeader eyebrow="Contact" title="Contact Kriovya Labs">
         Use the form for a general message, or call, WhatsApp and email directly for project
         discussions.
       </PageHeader>

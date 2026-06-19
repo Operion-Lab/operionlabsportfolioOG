@@ -57,26 +57,26 @@ export async function POST(req: Request) {
   if (message.includes("price") || message.includes("cost") || message.includes("how much")) {
     return NextResponse.json({
       reply:
-        "Operion Labs does not publish fixed pricing on the site. Share your project type, workflow, timeline and rough budget through the Get Quote form for a reviewed estimate. Third-party costs like domain, hosting, database, SMS, email, payment gateway and AI API usage are separate.",
+        "Kriovya Labs does not publish fixed pricing on the site. Share your project type, workflow, timeline and rough budget through the Get Quote form for a reviewed estimate. Third-party costs like domain, hosting, database, SMS, email, payment gateway and AI API usage are separate.",
     });
   }
 
   if (message.includes("mobile") || message.includes("app")) {
     return NextResponse.json({
       reply:
-        "Operion Labs builds mobile apps and connected dashboards for bookings, field teams, internal workflows and customer-facing services. Share your requirements through the Get Quote form for a scoped estimate.",
+        "Kriovya Labs builds mobile apps and connected dashboards for bookings, field teams, internal workflows and customer-facing services. Share your requirements through the Get Quote form for a scoped estimate.",
     });
   }
 
   if (message.includes("website") || message.includes("service")) {
     return NextResponse.json({
       reply:
-        "Operion Labs builds websites, mobile apps, custom software, admin panels, backend APIs, cloud/database systems, AI chatbots and maintenance plans. Use the Get Quote form to share your project type, timeline and rough budget.",
+        "Kriovya Labs builds websites, mobile apps, custom software, admin panels, backend APIs, cloud/database systems, AI chatbots and maintenance plans. Use the Get Quote form to share your project type, timeline and rough budget.",
     });
   }
 
   return NextResponse.json({
     reply:
-      "Please share your project type, timeline and rough budget, or use the Get Quote form. Operion Labs will review requirements before sharing a final quotation.",
+      "Please share your project type, timeline and rough budget, or use the Get Quote form. Kriovya Labs will review requirements before sharing a final quotation.",
   });
 }

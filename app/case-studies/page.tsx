@@ -7,7 +7,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Case Studies",
   description:
-    "Operion Labs case study style demos and prototypes, labeled without fake client claims.",
+    "Kriovya Labs case study style demos and prototypes, labeled without fake client claims.",
   path: "/case-studies",
 });
 
@@ -15,7 +15,7 @@ export default function CaseStudiesPage() {
   return (
     <>
       <PageHeader eyebrow="Case studies" title="Proof blocks that avoid fake claims">
-        These examples show the type of product and workflow thinking Operion Labs can deliver while
+        These examples show the type of product and workflow thinking Kriovya Labs can deliver while
         staying honest about demo and prototype status.
       </PageHeader>
       <section className="bg-white py-16 sm:py-20">

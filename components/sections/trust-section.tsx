@@ -7,7 +7,7 @@ export function TrustSection() {
       <div className="site-shell">
         <SectionHeading
           align="center"
-          eyebrow="Why Operion Labs"
+          eyebrow="Why Kriovya Labs"
           theme="dark"
           title="A disciplined build process"
         >

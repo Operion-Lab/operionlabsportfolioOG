@@ -1,7 +1,7 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
-import { OperionLogo } from "@/components/branding/operion-logo";
+import { KriovyaLogo } from "@/components/branding/kriovya-logo";
 import { ButtonLink, ExternalButtonLink } from "@/components/ui/button";
 import { homeHeroSignals, homeHeroTags, siteConfig } from "@/content/site";
 
@@ -21,7 +21,7 @@ export function Hero() {
 
       <div className="site-shell relative grid min-h-[78svh] gap-12 py-20 xl:grid-cols-[minmax(0,1.05fr)_minmax(380px,0.95fr)] xl:items-center">
         <div className="max-w-3xl">
-          <OperionLogo className="text-left" markClassName="h-12 w-12" showTagline />
+          <KriovyaLogo className="text-left" markClassName="h-12 w-12" showTagline />
           <p className="mt-6 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--brand-blue)]">
             {siteConfig.domain}
           </p>
@@ -29,7 +29,7 @@ export function Hero() {
             We build websites, mobile apps, SaaS platforms and AI-powered business software.
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700">
-            This portfolio is designed to show how Operion Labs handles scope, secure lead capture,
+            This portfolio is designed to show how Kriovya Labs handles scope, secure lead capture,
             workflow software, deployment and post-launch support without inflated claims.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

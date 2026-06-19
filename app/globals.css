@@ -3,15 +3,16 @@
 :root {
   --background: #f6f9ff;
   --foreground: #08152f;
-  --brand-ink: #08152f;
-  --brand-blue: #0a5bff;
-  --brand-blue-strong: #0636b8;
-  --brand-blue-soft: #e6efff;
-  --brand-green: #61d64b;
-  --brand-green-soft: #ebf9e7;
+  --brand-ink: #050816;
+  --brand-blue: #2563eb;
+  --brand-blue-strong: #1e3a8a;
+  --brand-blue-soft: #e8f0ff;
+  --brand-cyan: #06b6d4;
+  --brand-green: #06b6d4;
+  --brand-green-soft: #e6faff;
   --surface: #ffffff;
   --surface-muted: #eff5ff;
-  --border: #d8e5ff;
+  --border: #d6e4ff;
 }
 
 @theme inline {

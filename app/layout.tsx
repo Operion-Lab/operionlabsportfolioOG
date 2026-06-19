@@ -19,12 +19,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Operion Labs - Software that runs real-world work",
-    template: "%s | Operion Labs",
+    default: `${siteConfig.name} - ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   openGraph: {
-    title: "Operion Labs",
+    title: siteConfig.name,
     description: siteConfig.tagline,
     url: siteConfig.url,
     siteName: siteConfig.name,

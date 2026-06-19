@@ -10,11 +10,11 @@ const routes = [
     path: "/fieldops-saas",
     title: /run field teams, tasks, expenses, purchase orders and service calls from one cloud platform/i,
   },
-  { path: "/products", title: /product demos and prototypes from Operion Labs/i },
+  { path: "/products", title: /product demos and prototypes from Kriovya Labs/i },
   { path: "/case-studies", title: /proof blocks that avoid fake claims/i },
-  { path: "/contact", title: /contact Operion Labs/i },
+  { path: "/contact", title: /contact Kriovya Labs/i },
   { path: "/get-quote", title: /share your project requirements/i },
-  { path: "/about", title: /Operion Labs builds practical software for operations/i },
+  { path: "/about", title: /Kriovya Labs builds practical software for operations/i },
   { path: "/missing-page", title: /page not found/i },
 ] as const;
 

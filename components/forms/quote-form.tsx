@@ -50,13 +50,13 @@ export function QuoteForm() {
     if (!response.ok) {
       setStatus({
         type: "error",
-        message: body.error || "Unable to submit quote. Please call or email Operion Labs.",
+        message: body.error || "Unable to submit quote. Please call or email Kriovya Labs.",
       });
       return;
     }
 
     reset();
-    setStatus({ type: "success", message: "Quote request submitted. Operion Labs will review it." });
+    setStatus({ type: "success", message: "Quote request submitted. Kriovya Labs will review it." });
   }
 
   return (

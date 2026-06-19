@@ -30,17 +30,17 @@ export const phoneContacts = [
 const whatsappContact = phoneContacts.find((contact) => contact.whatsapp) ?? phoneContacts[0];
 
 export const siteConfig = {
-  name: "Operion Labs",
-  tagline: "Software that runs real-world work.",
-  domain: "operionlabs.in",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://operionlabs.in",
-  email: "operionlabs@gmail.com",
+  name: "Kriovya Labs",
+  tagline: "Ideas into working systems.",
+  domain: "kriovyalabs.in",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://kriovyalabs.in",
+  email: "kriovyalabs@gmail.com",
   phone: phoneContacts[0].raw,
   phoneDisplay: phoneContacts[0].display,
   phones: phoneContacts,
   whatsappUrl: `https://wa.me/${whatsappContact.raw}`,
   description:
-    "Operion Labs builds websites, mobile apps, SaaS platforms, admin dashboards, backend APIs, cloud systems and AI chatbots for real-world business operations.",
+    "Kriovya Labs builds websites, mobile apps, SaaS platforms, admin dashboards, backend APIs, cloud systems and AI chatbots for real-world business operations.",
 };
 
 export const navItems = [

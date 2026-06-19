@@ -43,13 +43,13 @@ export function DemoForm() {
     if (!response.ok) {
       setStatus({
         type: "error",
-        message: body.error || "Unable to request demo. Please call or email Operion Labs.",
+        message: body.error || "Unable to request demo. Please call or email Kriovya Labs.",
       });
       return;
     }
 
     reset();
-    setStatus({ type: "success", message: "Demo request sent. Operion Labs will contact you." });
+    setStatus({ type: "success", message: "Demo request sent. Kriovya Labs will contact you." });
   }
 
   return (

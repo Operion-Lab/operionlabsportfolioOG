@@ -40,13 +40,13 @@ export function ContactForm() {
     if (!response.ok) {
       setStatus({
         type: "error",
-        message: body.error || "Unable to send message. Please call or email Operion Labs.",
+        message: body.error || "Unable to send message. Please call or email Kriovya Labs.",
       });
       return;
     }
 
     reset();
-    setStatus({ type: "success", message: "Message sent. Operion Labs will respond soon." });
+    setStatus({ type: "success", message: "Message sent. Kriovya Labs will respond soon." });
   }
 
   return (

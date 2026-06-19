@@ -39,7 +39,7 @@ export async function POST(req: Request) {
 
   if (!canStoreLead && !canSendEmail) {
     return NextResponse.json(
-      { error: "Lead capture is not configured yet. Please call or email Operion Labs." },
+      { error: "Lead capture is not configured yet. Please call or email Kriovya Labs." },
       { status: 503 },
     );
   }

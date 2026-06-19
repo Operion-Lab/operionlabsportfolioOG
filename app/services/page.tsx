@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Services",
   description:
-    "Website development, mobile apps, custom software, admin panels, backend APIs, cloud databases, AI chatbots and maintenance from Operion Labs.",
+    "Website development, mobile apps, custom software, admin panels, backend APIs, cloud databases, AI chatbots and maintenance from Kriovya Labs.",
   path: "/services",
 });
 
@@ -17,7 +17,7 @@ export default function ServicesPage() {
   return (
     <>
       <PageHeader eyebrow="Services" title="Software services for real business workflows">
-        Operion Labs builds practical systems with clear scope, secure forms, maintainable code and
+        Kriovya Labs builds practical systems with clear scope, secure forms, maintainable code and
         deployment support.
       </PageHeader>
       <ServicesGrid heading={false} items={serviceAreas} />
