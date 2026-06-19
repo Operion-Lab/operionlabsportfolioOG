@@ -115,8 +115,8 @@ export default function FieldOpsPage() {
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-slate-950">Request a FieldOps demo</h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              Share your company details and current field workflow. The request is designed to be
-              saved in Supabase and emailed to Kriovya Labs after production credentials are added.
+              Share your company details and current field workflow. We'll review your request and
+              get back to you with a personalized demo and pricing information.
             </p>
           </div>
           <div className="rounded-lg border border-[var(--border)] bg-white p-5 shadow-sm sm:p-6">

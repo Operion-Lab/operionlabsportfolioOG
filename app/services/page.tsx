@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "Services",
   description:
-    "Website development, mobile apps, custom software, admin panels, backend APIs, cloud databases, AI chatbots and maintenance from Kriovya Labs.",
+     "Website development, mobile apps, custom software, admin panels, backend APIs, AI chatbots and maintenance from Kriovya Labs.",
   path: "/services",
 });
 

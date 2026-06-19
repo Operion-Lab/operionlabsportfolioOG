@@ -40,7 +40,7 @@ export const siteConfig = {
   phones: phoneContacts,
   whatsappUrl: `https://wa.me/${whatsappContact.raw}`,
   description:
-    "Kriovya Labs builds websites, mobile apps, SaaS platforms, admin dashboards, backend APIs, cloud systems and AI chatbots for real-world business operations.",
+    "Kriovya Labs builds websites, mobile apps, SaaS platforms, admin dashboards, AI chatbots and business software for real-world operations.",
 };
 
 export const navItems = [
@@ -57,7 +57,7 @@ export const homeHeroTags = [
   "FieldOps SaaS demo",
   "Controlled AI assistant",
   "Deployment handover",
-  "Supabase-ready backend",
+  "Production-ready forms",
 ];
 
 export const homeHeroSignals = [
@@ -123,7 +123,7 @@ export const serviceAreas = [
   {
     title: "Cloud and Database",
     description:
-      "Supabase, PostgreSQL, storage, deployment and monitoring setup for production systems.",
+      "Database design, storage setup, deployment and monitoring infrastructure for production systems.",
     icon: Database,
   },
   {
